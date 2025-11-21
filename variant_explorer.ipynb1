@@ -43,12 +43,16 @@ data[["CHROM", "POS", "IMPACT"]].head()
 ## Section 5 — Count Variants Per Chromosome
 chrom_counts = data["CHROM"].value_counts().sort_index()
 chrom_counts
-## Section 6 — Plot Variant Distribution
-plt.figure(figsize=(8,4))
+## Section 6 – Plot Variant Distribution (mobile-friendly)
+plt.figure(figsize=(16,6))   # Wider chart so it renders on GitHub
 chrom_counts.plot(kind="bar", color="purple")
-plt.title("Variants Per Chromosome")
-plt.xlabel("Chromosome")
-plt.ylabel("Count")
+
+plt.title("Variants Per Chromosome", fontsize=16)
+plt.xlabel("Chromosome", fontsize=14)
+plt.ylabel("Count", fontsize=14)
+
+plt.xticks(rotation=0)   # Horizontal labels
+plt.tight_layout()       # Fix spacing
 plt.show()
 ## Section 7 — Biological Interpretation
 
