@@ -7,3 +7,42 @@ This Jupyter notebook will include:
 - Biological interpretation
 
 Updates coming soon.
+
+## Section 1 — Imports & Setup
+import pandas as pd
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+## Section 2 — Load VCF Data
+vcf_path = "../data/sample.vcf"
+
+data = pd.read_csv(vcf_path, sep=" ", comment="#", header=None)
+data.columns = ["CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", "INFO"]
+
+data.head()
+## Section 3 — Inspect the Data
+data.info()
+## Section 4 — Extract Impact Level
+data["IMPACT"] = data["INFO"].str.split("=").str[1]
+data[["CHROM", "POS", "IMPACT"]].head()
+## Section 5 — Count Variants Per Chromosome
+chrom_counts = data["CHROM"].value_counts().sort_index()
+chrom_counts
+## Section 6 — Plot Variant Distribution
+plt.figure(figsize=(8,4))
+chrom_counts.plot(kind="bar", color="purple")
+plt.title("Variants Per Chromosome")
+plt.xlabel("Chromosome")
+plt.ylabel("Count")
+plt.show()
+## Section 7 — Biological Interpretation
+
+This sample VCF contains variants across chromosomes 1, 2, 17, and X. 
+High-impact variants appear on chromosomes 2 and 17, which may indicate 
+regions that could influence important biological traits.
+
+This demonstrates how to:
+- load VCF genomic data
+- extract variant attributes
+- analyze mutation distribution
+- visualize biological patterns using Python
