@@ -8,6 +8,21 @@ This Jupyter notebook will include:
 
 Updates coming soon.
 
+## Section 0 — Inspect Raw VCF File
+
+Before using pandas to load the VCF file, I read the raw text to understand 
+how variant data is structured. This helps me see the difference between 
+metadata lines (starting with '#') and actual variant entries.
+
+file_path = "../data/sample.vcf"
+
+with open(file_path, "r") as f:
+    raw_lines = f.readlines()
+
+print("First 10 lines of the raw VCF file:")
+for line in raw_lines[:10]:
+    print(line.strip())
+
 ## Section 1 — Imports & Setup
 import pandas as pd
 import matplotlib.pyplot as plt
