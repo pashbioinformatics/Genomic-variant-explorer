@@ -19,6 +19,7 @@ Project in progress — updates coming this week.
 ### 🌟 About Me:
 My name is **Pasheun Perry**, and I am transitioning into Bioinformatics.
 Follow my journey into genomics, Python workflows, and computational biology.
+• Certified Phlebotomist (Northwest Phlebotomy School, 2025)
 
 📁 R Basics Practice (New Folder Added)
 
